@@ -1,6 +1,17 @@
 <?php 
   //Address Class
   class Address {
+    const ADDRESS_TYPE_RESIDENCE = 1;
+    const ADDRESS_TYPE_BUSINESS = 2;
+    const ADDRESS_TYPE_PARK = 3;
+
+    //valid address type
+    public static $valid_address_types = array(
+      Address::ADDRESS_TYPE_RESIDENCE => 'residence',
+      Address::ADDRESS_TYPE_BUSINESS => 'business',
+      Address::ADDRESS_TYPE_PARK => 'park',
+      );
+
     //public address
     public $physical_address;
 
@@ -19,6 +30,7 @@
     //country name
     public $country_name;
 
+    protected $_address_type_id;
     protected $_address_id;
 
     protected $_time_created;
@@ -47,7 +59,7 @@
     //magic __get
     function __get($name){
       if(!$this->_postcode){
-        $this->_postcode = $this->guess_postcode();
+        $this->_postcode = $this->_guess_postcode();
       }
       $protected_name = '_' . $name;
       if(property_exists($this, $protected_name)){
@@ -60,24 +72,37 @@
 
     //magic __set
     function __set($name, $value){
+      //set valid type id value
+      if('address_type_id' == $name) {
+        $this->_setAddressTypeId($value);
+        return;
+      }
+
+      //set postcode value
       if($name == "postcode"){
         $this->$name = $value;
         return;
       }
 
       trigger_error("Undefined or unallowed property via __set: " . $name);
-      return NULL;
     }
 
-    //magic __tostring
-    function __toString(){
-      return $this->display();
+    protected function _setAddressTypeId($address_type_id){
+      if(self::isValidAddressTypeId($address_type_id)){
+        $this->_address_type_id = $address_type_id;
+      }
     }
 
-    protected function guess_postcode(){
+    protected function _guess_postcode(){
       return "Guess value from DB";
     }
 
+    //check if address type id is valid
+    public static function isValidAddressTypeId($address_type_id){
+      return array_key_exists($address_type_id, self::$valid_address_types);
+    }
+
+    //display address
     public function display(){
       $output = "";
       $output .= $this->physical_address;
@@ -92,5 +117,8 @@
       return $output;
     }
 
-
+    //magic __tostring
+    function __toString(){
+      return $this->display();
+    }
   }

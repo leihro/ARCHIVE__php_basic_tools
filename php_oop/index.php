@@ -8,6 +8,7 @@
   $address->city_name = "Rostock";
   $address->province = "MV";
   $address->country_name = "Deutschland";
+  $address->address_type_id = 1;
 
   
  ?>
@@ -18,7 +19,12 @@
  	<meta charset ="utf-8">
  </head>
  <body>
-
+ 	<h3>Testing SRO</h3>
+ 	<?php 
+ 		echo Address::ADDRESS_TYPE_RESIDENCE; 
+ 		echo "<br>";
+ 		echo "<tt><pre>" . var_export(Address::$valid_address_types, TRUE) . "</pre></tt>";
+ 		?>
  	<h3>Testing Constructor</h3>
  	<?php 
  		$address2 = new Address(array(
@@ -38,14 +44,14 @@
  	?>
  	<br>
 
- 	<h3>display address</h3>
+ 	<h3>Display address:</h3>
  	<?php  
  		$address->postcode = 18109;
  		echo $address->display(); 
  	?>
  	<br>
 
- 	<h3>dump all vars in address obj</h3>
+ 	<h3>Setting properties: </h3>
  	<?php 
  		echo "<tt><pre>";
  		echo var_export($address, TRUE);
