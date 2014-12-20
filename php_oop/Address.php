@@ -1,6 +1,8 @@
 <?php 
+
+  require_once "Model.php";
   //Address Class
-  class Address {
+  abstract class Address implements Model{
     const ADDRESS_TYPE_RESIDENCE = 1;
     const ADDRESS_TYPE_BUSINESS = 2;
     const ADDRESS_TYPE_PARK = 3;
@@ -38,6 +40,7 @@
 
     //constructor
     function __construct($data = array()){
+      $this->_init();
       $this->_time_created = time();
 
       //Ensure that the Address can be populated
@@ -72,12 +75,6 @@
 
     //magic __set
     function __set($name, $value){
-      //set valid type id value
-      if('address_type_id' == $name) {
-        $this->_setAddressTypeId($value);
-        return;
-      }
-
       //set postcode value
       if($name == "postcode"){
         $this->$name = $value;
@@ -100,6 +97,16 @@
     //check if address type id is valid
     public static function isValidAddressTypeId($address_type_id){
       return array_key_exists($address_type_id, self::$valid_address_types);
+    }
+
+    protected abstract function _init();
+
+    final public static function load($address_id){
+
+    } 
+
+    final public function save(){
+
     }
 
     //display address
