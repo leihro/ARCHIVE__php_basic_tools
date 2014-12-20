@@ -2,6 +2,8 @@
 
   require_once "Model.php";
   //Address Class
+
+  
   abstract class Address implements Model{
     const ADDRESS_TYPE_RESIDENCE = 1;
     const ADDRESS_TYPE_BUSINESS = 2;
