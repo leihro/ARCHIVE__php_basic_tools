@@ -1,7 +1,7 @@
 <?php
 /**
  * session is optional, both session auth or class auth will work
- *
+ * use token to check if the submitted form is from the domain we want
  */
 
 class Csrf {
