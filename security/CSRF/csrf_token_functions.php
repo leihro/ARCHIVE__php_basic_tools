@@ -1,8 +1,12 @@
 <?php
 /**
- * must call session start first
+ * session is optional, both session auth or class auth will work
+ *
  */
 
+class Csrf {
+	private $_token;
+	private $_token_time;
 	/**
 	 * check if request type
 	 *
@@ -25,9 +29,9 @@
 	 * generate and store a token in user session
 	 */
 	function create_csrf_token(){
-		$token = csrf_token();
-		$_SESSION['csrf_token'] = $token;
-		$_SESSION['csrf_token_time'] = time();
+		$token = $this->csrf_token();
+		$_SESSION['csrf_token'] = $this->_token = $token;
+		$_SESSION['csrf_token_time'] = $this->_token_time = time();
 		return $token;
 	}
 
@@ -35,8 +39,8 @@
 	 * destroy a token by removing a from the session
 	 */
 	function destroy_csrf_token(){
-		$_SESSION['csrf_token'] = null;
-		$_SESSION['csrf_token_time'] = null;
+		$_SESSION['csrf_token'] = $this->_token = null;
+		$_SESSION['csrf_token_time'] = $this->_token_time = null;
 		return true;
 	}
 
@@ -45,7 +49,7 @@
 	 * echo csrf_token_tag();
 	 */
 	function csrf_token_tag(){
-		$token = create_csrf_token();
+		$token = $this->create_csrf_token();
 		return "<input type = \"hidden\" name = \"csrf_token\" value = \"" . $token . "\">";
 	}
 
@@ -55,7 +59,7 @@
 	function csrf_token_is_valid(){
 		if(isset($_POST['csrf_token'])){
 			$user_token = $_POST['csrf_token'];
-			$stored_token = $_SESSION['csrf_token'];
+			$stored_token = $this->_token;//same as: $stored_token = $_SESSION['csrf_token'];
 			return $user_token === $stored_token;
 		} else {
 			return false;
@@ -66,7 +70,7 @@
 	 * handle csrf token failure
 	 */
 	function die_on_csrf_token_failure(){
-		if(!csrf_token_is_valid()){
+		if(!$this->csrf_token_is_valid()){
 			die("CSRF token validation failed");
 		}
 	}
@@ -76,11 +80,13 @@
 	 */
 	function csrf_token_is_recent(){
 		$max_expire = 60 * 60 * 24;
-		if(isset($_SESSION['csrf_token_time'])) {
-			$stored_time = $_SESSION['csrf_token_time'];
+		if(isset($this->_token_time)) {
+			$stored_time = $this->_token_time;
 			return ($stored_time + $max_expire) >= time();
 		} else {
-			destroy_csrf_token();
+			$this->destroy_csrf_token();
 			return false;
 		}
 	}
+
+}
