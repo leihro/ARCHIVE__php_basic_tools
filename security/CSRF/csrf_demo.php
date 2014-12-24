@@ -6,7 +6,7 @@
  */
 	// can use sesseion or csrf class to determine the right token
 	// session_start();
-	require_once "csrf_token_functions.php";
+	require_once "class.csrf_token.php";
 	$csrf = new Csrf;
 	//check post
 	if($csrf->request_is_post()){
