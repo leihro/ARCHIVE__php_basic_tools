@@ -1,4 +1,7 @@
 <?php 
+	// hacker can hijack or send back fake session id to the server.
+	// solution: use HttpOnly cookies, SSL, secure cookies and only cookies, not POST and GET
+
 	// session setting in php.ini file
 	// sessino.cookie_lifetime = 0 // until browser is closed
 	// session.cookie_secure = 1 // 0 if not using SSL
@@ -6,7 +9,6 @@
 	// session.use_only_cookies = 1 // ID cannot come from GET or POST, just from cookie
 	// session.entropy_file = "/dev/urandom" // add entropy in ID
 
-	// a session_start() is required to use these methods
 	session_start();
 	class MySession {
 
@@ -63,7 +65,7 @@
 		}
 
 		/**
-		 * check if session is valid
+		 * check if session is valid, remove old session id, check ip and user agent 
 		 */
 		public function is_session_valid(){
 			$is_check_ip = true;
@@ -117,6 +119,7 @@
 		 * actions after successful_login, set credential session and obj attrs
 		 */
 		public function after_successful_login(){
+			// generate a new session id for user
 			session_regenerate_id();
 
 			$_SESSION['logged_in'] = true;
@@ -131,6 +134,7 @@
 		 */
 		public function after_successful_logout(){
 			$_SESSION['logged_in'] = false;
+			// end old session immediately
 			$this->end_session();
 		}
 
