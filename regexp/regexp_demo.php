@@ -56,27 +56,32 @@ function print_regexp_test($regex, $subject, $test){
  */
 $regex_usr = '/^[a-zA-Z0-9_-]{6,18}$/';
 print_regexp_test($regex_usr, "fiaj_u82-df", "username/password");
+print_regexp_test($regex_usr, "fiaj_u82-dfjfaihdfiahdkjfha", "username/password");
 
 /**
  * Demo 2. email
  */
 $regex_email = '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z]{2,6})$/';
 print_regexp_test($regex_email, "lei@example.com", "email");
+print_regexp_test($regex_email, "lei@example@.com", "email");
 
 /**
  * Demo 3. ip address
  */
 $regex_ip = '/^((2[0-4]\d|25[0-5]|[01]?\d?\d)\.){3}(2[0-4]\d|25[0-5]|[01]?\d?\d)$/';
 print_regexp_test($regex_ip, "192.168.0.2", "ip address");
+print_regexp_test($regex_ip, "192.168.0.298", "ip address");
 
 /**
  * Demo 4. URL
  */
+$regex_url = '/^(https?:\/\/)?([\da-z\._-]+)\.([a-z]{2,6})\/([\/\w\._-]*)*\/?$/';
+print_regexp_test($regex_url, "http://github.com/lei", "url");
+print_regexp_test($regex_url, "http://github.com/lei.far:", "url");
 
 /**
  * Demo 5. HTML
  */
-
-
-
-
+$regex_html = '/^<([a-z]+)([^>]+)*(>(.*)<\/\1>|\s+\/>)$/';
+print_regexp_test($regex_html,"<header>My Home Page</header>", "html tag");
+print_regexp_test($regex_html,"<>header>My Home Page</header>", "html tag");
