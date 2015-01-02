@@ -2,17 +2,19 @@
 There are lots of great solutions in PHP to a certain web problems, and here is a personal choice inspired mainly by the project Awesome PHP here in github
 
 ## PHP solutions
-- [internationalization](#internationalization)
+- [Internationalization](#Internationalization)
 	- [i18n](https://github.com/Philipp15b/php-i18n)
-- [pdf](#pdf)
+- [PDF](#PDF)
 	- [tcpdf](https://github.com/tecnickcom/TCPDF)
-- [login](#login)
+- [Login](#Login)
 	- [php-login-one-file](https://github.com/panique/php-login-one-file)
 	- [php-login-minimal](https://github.com/panique/php-login-minimal)
 	- [php-login-advanced](https://github.com/panique/php-login-advanced)
 	- [php-login-mvc](https://github.com/panique/php-login-mvc)
-- [password](#password)
+- [Password](#Password)
 	- [password_compat](https://github.com/ircmaxell/password_compat)
+- [Mail](#mail)
+	- [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 
 ### Internationalization
 * [php-i18n](https://github.com/Philipp15b/php-i18n) - i18n with cache.
@@ -31,3 +33,6 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 
 ### Password
 * [password_compat](https://github.com/ircmaxell/password_compat) - forward compatability with password_* functions
+
+### Mail
+* [PHPMailer](https://github.com/PHPMailer/PHPMailer) - full feature php email solution
