@@ -11,6 +11,8 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 	- [php-login-minimal](https://github.com/panique/php-login-minimal)
 	- [php-login-advanced](https://github.com/panique/php-login-advanced)
 	- [php-login-mvc](https://github.com/panique/php-login-mvc)
+- [password](#password)
+	- [password_compat](https://github.com/ircmaxell/password_compat)
 
 ### Internationalization
 * [php-i18n](https://github.com/Philipp15b/php-i18n) - i18n with cache.
@@ -26,3 +28,6 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 * [php-login-advanced](https://github.com/panique/php-login-advanced) - like minimal, add PDO, Captchas, mail sending...
 
 * [php-login-mvc](https://github.com/panique/php-login-mvc) - mvc framework version.
+
+### Password
+* [password_compat](https://github.com/ircmaxell/password_compat) - forward compatability with password_* functions
