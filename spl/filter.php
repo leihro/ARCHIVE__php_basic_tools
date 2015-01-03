@@ -87,3 +87,15 @@ foreach($files as $file) {
 
 unset($files);
 echo"<hr />";
+
+/**
+ * test of ParentIterator
+ * get all dirs of a certain dir
+ */
+$files = new RecursiveDirectoryIterator('../common/');
+$files = new ParentIterator($files);
+$files = new RecursiveIteratorIterator($files, RecursiveIteratorIterator::SELF_FIRST);
+foreach($files as $file) {
+    echo $file->getPathname() . "<br />";
+}
+unset($files);
