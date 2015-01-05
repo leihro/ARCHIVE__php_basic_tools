@@ -13,8 +13,10 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 	- [php-login-mvc](https://github.com/panique/php-login-mvc)
 - [Password](#Password)
 	- [password_compat](https://github.com/ircmaxell/password_compat)
-- [Mail](#mail)
+- [Mail](#Mail)
 	- [PHPMailer](https://github.com/PHPMailer/PHPMailer)
+- [Debug](#Debug)
+	- [Kint](https://github.com/raveren/kint)
 
 ### Internationalization
 * [php-i18n](https://github.com/Philipp15b/php-i18n) - i18n with cache.
@@ -36,3 +38,6 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 
 ### Mail
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer) - full feature php email solution
+
+### Debug
+* [Kint](https://github.com/raveren/kint) - php debuging tool
