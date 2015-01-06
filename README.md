@@ -17,6 +17,8 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 	- [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 - [Debug](#Debug)
 	- [Kint](https://github.com/raveren/kint)
+- [Framework](#Framework)
+	- [Symfony](https://github.com/symfony/symfony)
 
 ### Internationalization
 * [php-i18n](https://github.com/Philipp15b/php-i18n) - i18n with cache.
@@ -41,3 +43,6 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 
 ### Debug
 * [Kint](https://github.com/raveren/kint) - php debuging tool
+
+### Symfony
+* [Symfony](https://github.com/symfony/symfony) 
