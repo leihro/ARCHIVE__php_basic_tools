@@ -1,6 +1,8 @@
 <?php
 class ArrayTest extends PHPUnit_Framework_TestCase{
-    
+    /**
+     * test of array_splice
+     */
     public function testSplice(){
         $arr = array();
         $this->assertEquals(0, count($arr));
@@ -43,5 +45,24 @@ class ArrayTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals(array(1,2,5,6,7,4), $arr);
 
     }
+    /**
+     * test of array_filter
+     */
+    public function testFilter(){
+        $arr = array(0,1,2,null,false,'','a');
+        /**
+         * filter: use 'strlen' to remove "false, null and ''"
+         */
+        //array_values()以数字顺序返回array中全部的值
+        $this->assertEquals(array(0,1,2,'a'), array_values(array_filter($arr, 'strlen')));
+        /**
+         * filter: use anonymous function to remove 'null'
+         */
+        $arr_without_null = array_filter($arr, function($value){
+            return !is_null($value);
+        });
+        $this->assertEquals(array(0,1,2,false,'','a'), array_values($arr_without_null));
+
+        //$this->assertEquals(array(0,1,2,null,false,'','a'), $arr);
+    }
 }
-?>
