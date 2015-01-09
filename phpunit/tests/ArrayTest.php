@@ -1,5 +1,6 @@
 <?php
 class ArrayTest extends PHPUnit_Framework_TestCase{
+
     /**
      * test of array_splice
      */
@@ -45,6 +46,7 @@ class ArrayTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals(array(1,2,5,6,7,4), $arr);
 
     }
+
     /**
      * test of array_filter
      */
@@ -65,4 +67,69 @@ class ArrayTest extends PHPUnit_Framework_TestCase{
 
         //$this->assertEquals(array(0,1,2,null,false,'','a'), $arr);
     }
+
+    /**
+     * test of array_flip
+     */
+    public function testFlip(){
+        $arr = array("red","blue","yellow");
+        $this->assertEquals(array("red"=>0,"blue"=>1,"yellow"=>2),array_flip($arr));
+    }
+
+    /**
+     * test of array_diff
+     */
+    public function testDiff(){
+        $arr1 = array(1,2,3,4);
+        $arr2 = array(1,2);
+        $this->assertEquals(array(3,4), array_values(array_diff($arr1, $arr2)));
+
+    }
+
+    /**
+     * test of array_intersect
+     */
+    public function testIntersect(){
+        $arr1 = array(1,2,3,4);
+        $arr2 = array(1,2);
+        $this->assertEquals(array(1,2), array_values(array_intersect($arr1, $arr2)));
+    }
+
+    /**
+     * test of array_merge
+     */
+    public function testMerge(){
+        $arr1 = array(1,2,3,4);
+        $arr2 = array(1 => "apple");
+        $this->assertEquals(array(1, 2, 3, 4, "apple"), array_merge($arr1, $arr2));
+        $arr3 = array();
+        $this->assertEquals(array("apple"), array_merge($arr3, $arr2));
+    }
+
+    /**
+     * test of in_array
+     */
+    public function testInArray(){
+        $arr = array(1,2,3,4,5);
+        $this->assertEquals(true, in_array(1, $arr));
+    }
+
+    /**
+     * test of array_walk
+     */
+    // public function testWalk(){
+    //     $arr = array("hello","you","thanks");
+    //     array_walk($arr, function($value){
+    //         return ucfirst($value);
+    //     });
+    //     $this->assertEquals(array("Hello","You","Thanks"), $arr);
+    // }
+
+    /**
+     * test of array_search
+     */
+    
+    /**
+     * test of array_reverse
+     */
 }
