@@ -17,4 +17,9 @@
 				array("0", "0")
 				);
 		}
+
+		public function testMultiDelimiter(){
+			$str = 'Tomorrow:is another/day';
+			$this->assertEquals(array('Tomorrow','is','another','day'), multi_explode(array(':', ' ', '/'), $str));
+		}
 	}

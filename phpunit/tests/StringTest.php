@@ -47,7 +47,18 @@ class StringTest extends PHPUnit_Framework_TestCase{
     
     /**
      * test of str_replace
+     * @dataProvider strReplaceProvider
      */
+    public function testStrReplace($search, $replace, $subject, $result){
+        $this->assertEquals($result, str_replace($search, $replace, $subject));
+    }
+
+    public function strReplaceProvider(){
+        return array(
+            array('Sunday','Saturday','Tomorrow is Sunday','Tomorrow is Saturday'),
+            array(array(1,2,3), 5, 12345, 55545)
+            );
+    }
     
     /**
      * test of strpos
