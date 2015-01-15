@@ -22,6 +22,7 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 - [Framework](#Framework)
 	- [Symfony](https://github.com/symfony/symfony)
 	- [Laravel](https://github.com/laravel/laravel)
+	- [cakePHP](https://github.com/cakephp/cakephp)
 - [Data](#Data)
 	- [generateData](https://github.com/benkeen/generatedata)
 
@@ -55,6 +56,7 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 ### Symfony
 * [Symfony](https://github.com/symfony/symfony) 
 * [Laravel](https://github.com/laravel/laravel) 
+* [cakePHP](https://github.com/cakephp/cakephp)
 
 ### Data
 * [generateData](https://github.com/benkeen/generatedata) - app to generate random data in js, php, mysql
