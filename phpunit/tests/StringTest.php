@@ -33,18 +33,25 @@ class StringTest extends PHPUnit_Framework_TestCase{
         $arr = explode(" ", $this->str);
         $this->assertEquals('new', $arr[1]);
     }
-    /**
-     * test of nl2br
-     */
-    
+
     /**
      * test of sprintf
      */
-    
+    public function testPrintf(){
+        $format = "Today is %s, 13.%d.2014";
+        $string = "Sunday";
+        $month = 11;
+        $this->assertEquals("Today is Sunday, 13.11.2014", sprintf($format, $string, $month));
+    }
+
     /**
      * test of strip_tags
      */
-    
+    public function testStripTags(){
+        $html_text = "<p>foo,<a href = \"somewhere.com\"><b>bar</b></a></p>";
+        $this->assertEquals("<p>foo,<a href = \"somewhere.com\">bar</a></p>", strip_tags($html_text, "<p><a>"));
+    }
+
     /**
      * test of str_replace
      * @dataProvider strReplaceProvider
@@ -63,9 +70,17 @@ class StringTest extends PHPUnit_Framework_TestCase{
     /**
      * test of strpos
      */
-    
+    public function testStrPos(){
+        $this->assertEquals(1,strpos('haystack', 'a'));
+        // use '===' to check strpos
+        $this->assertEquals(false,strpos('haystack', 'e'));
+    }
+
     /**
      * test of strrev
      */
+    public function testStrRev(){
+        $this->assertEquals('abc', strrev('cba'));
+    }
     
 }
