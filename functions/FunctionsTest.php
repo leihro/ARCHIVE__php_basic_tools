@@ -4,11 +4,13 @@
 
 	class FunctionsTest extends PHPUnit_Framework_TestCase {
 
+
 		/**
 		 * @dataProvider inStringProvider
 		 */
 		public function testInString($haystack, $needle){
-			$this->assertTrue(in_string($haystack, $needle));
+            $util = new Util();
+			$this->assertTrue($util->in_string($haystack, $needle));
 		}
 
 		public function inStringProvider(){
@@ -19,7 +21,8 @@
 		}
 
 		public function testMultiDelimiter(){
+            $util = new Util();
 			$str = 'Tomorrow:is another/day';
-			$this->assertEquals(array('Tomorrow','is','another','day'), multi_explode(array(':', ' ', '/'), $str));
+			$this->assertEquals(array('Tomorrow','is','another','day'), $util->multi_explode(array(':', ' ', '/'), $str));
 		}
 	}
