@@ -6,6 +6,10 @@ class Util {
 	 * commonly used functions
 	 */
 
+/*------------------------------------------------------
+	STRING
+-------------------------------------------------------*/
+
 	/**
 	 * check a string if needle is in the haystack
 	 * @param  string $haystack 
@@ -21,6 +25,26 @@ class Util {
 	}
 
 	/**
+	 * check $str starts with $sub
+	 * @param  string $str 
+	 * @param  string $sub
+	 * @return boolean
+	 */
+	public function start_with($str, $sub){
+		return (substr($str, 0, strlen($sub)) === $sub);
+	}
+
+	/**
+	 * check $str ends with $sub
+	 * @param  string $str
+	 * @param  string $sub
+	 * @return boolean
+	 */
+	public function end_with($str, $sub){
+		return (substr($str, strlen($str)-strlen($sub)) === $sub);
+	}	
+
+	/**
 	 * explode with multi delimiters
 	 * @param  string $delimiters 
 	 * @param  string $str        string to be exploded
@@ -31,6 +55,8 @@ class Util {
 		$result = explode($delimiters[0], $replace);
 		return $result;
 	}
+
+
 
 }
  ?>
