@@ -3,14 +3,17 @@
 	require_once "functions.php";
 
 	class FunctionsTest extends PHPUnit_Framework_TestCase {
+		protected $util;
 
+		protected function setUp(){
+			$this->util = new Util();
+		}
 
 		/**
 		 * @dataProvider inStringProvider
 		 */
 		public function testInString($haystack, $needle){
-            $util = new Util();
-			$this->assertTrue($util->in_string($haystack, $needle));
+			$this->assertTrue($this->util->in_string($haystack, $needle));
 		}
 		public function inStringProvider(){
 			return array(
@@ -20,9 +23,8 @@
 		}
 
 		public function testMultiDelimiter(){
-            $util = new Util();
 			$str = 'Tomorrow:is another/day';
-			$this->assertEquals(array('Tomorrow','is','another','day'), $util->multi_explode(array(':', ' ', '/'), $str));
+			$this->assertEquals(array('Tomorrow','is','another','day'), $this->util->multi_explode(array(':', ' ', '/'), $str));
 		}
 
 		/**
@@ -31,8 +33,7 @@
 		 * @param  string $sub 
 		 */
 		public function testStartWith($str, $sub){
-			$util = new Util();
-			$this->assertTrue($util->start_with($str, $sub));
+			$this->assertTrue($this->util->start_with($str, $sub));
 
 		}
 		public function subStrStartProvider(){
@@ -48,14 +49,18 @@
 		 * @param  string $sub
 		 */
 		public function testEndWith($str, $sub){
-			$util = new Util();
-			$this->assertTrue($util->end_with($str, $sub));
+			$this->assertTrue($this->util->end_with($str, $sub));
 		}
 		public function subStrEndProvider(){
 			return array(
 				array('Hallo', 'lo'),
 				array('node', 'ode')
 				);
+		}
+
+		public function testSortArray(){
+			$this->assertEquals(array(3,2,1), $this->util->sort_array(array(2,3,1)));
+			$this->assertEquals(array('c','b','a'), $this->util->sort_array(array('c','a','b')));
 		}
 
 

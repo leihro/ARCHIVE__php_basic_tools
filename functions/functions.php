@@ -56,6 +56,42 @@ class Util {
 		return $result;
 	}
 
+	/**
+	 * sort values in an array
+	 * @param  mixed $array 
+	 * @return 
+	 */
+	public function sort_array($array, $type = "des"){
+		switch ($type) {
+			case 'des':
+				if(is_numeric($array[0])){
+					usort($array, function($a, $b){
+						return (($a > $b) ? -1 : 1);
+					});	
+				} elseif(is_string($array[0])){
+					usort($array, function($a, $b){
+						return strcmp($b, $a);
+					});
+				}
+				break;
+			case 'asc':
+				if(is_numeric($array[0])){
+					usort($array, function($a, $b){
+						return (($a > $b) ? 1 : -1);
+					});	
+				} elseif(is_string($array[0])){
+					usort($array, function($a, $b){
+						return strcmp($a, $b);
+					});
+				}
+				break;
+			default:
+				break;
+
+		}
+
+		return $array;
+	}
 
 
 }
