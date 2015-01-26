@@ -62,7 +62,7 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 ### UnitTest
 * [PHPUnit](https://github.com/sebastianbergmann/phpunit) - php unit test framework
 
-### Symfony
+### Frameworks
 * [Symfony](https://github.com/symfony/symfony) 
 * [Laravel](https://github.com/laravel/laravel) 
 * [cakePHP](https://github.com/cakephp/cakephp)
@@ -70,6 +70,7 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 
 ### Data
 * [generateData](https://github.com/benkeen/generatedata) - app to generate random data in js, php, mysql
+<<<<<<< HEAD
 
 ### Page
 * [Jekyll](https://github.com/jekyll/jekyll) - blog/site generated tool
@@ -80,3 +81,5 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 * [PSR2] - Code Style more details than PSR1
 * [PSR3] - Log and levels
 * [PSR4] - new autoload
+=======
+>>>>>>> 2d2018dd761a1b8d724af9edab66237e0b142d26
