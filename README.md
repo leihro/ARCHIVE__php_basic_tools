@@ -28,7 +28,12 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 	- [generateData](https://github.com/benkeen/generatedata)
 - [Page](#Page)
 	- [Jekyll](https://github.com/jekyll/jekyll)
-- []
+- [PSR](#Standard)
+	- [PSR0]
+	- [PSR1]
+	- [PSR2]
+	- [PSR3]
+	- [PSR4]
 
 ### Internationalization
 * [php-i18n](https://github.com/Philipp15b/php-i18n) - i18n with cache.
@@ -68,3 +73,10 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 
 ### Page
 * [Jekyll](https://github.com/jekyll/jekyll) - blog/site generated tool
+
+###Standard
+* [PSR0]() - autoload
+* [PSR1] - Basic Code Standard
+* [PSR2] - Code Style more details than PSR1
+* [PSR3] - Log and levels
+* [PSR4] - new autoload
