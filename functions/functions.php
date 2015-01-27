@@ -57,6 +57,23 @@ class Util {
 	}
 
 	/**
+	 * count diff chars in a string and sort them in an array
+	 * @param  [type] $str [description]
+	 * @return [type]      [description]
+	 */
+	public function count_sort_char_in_string($str){
+		$arr = str_split($str);
+		$count_arr = array_count_values($arr);
+		arsort($count_arr);
+		return $count_arr;
+	}
+
+
+/*------------------------------------------------------
+	ARRAY
+-------------------------------------------------------*/	
+
+	/**
 	 * sort values in an array
 	 * @param  mixed $array 
 	 * @return 

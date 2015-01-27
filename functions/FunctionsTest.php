@@ -63,5 +63,12 @@
 			$this->assertEquals(array('c','b','a'), $this->util->sort_array(array('c','a','b')));
 		}
 
+		public function testCountSortCharInString(){
+			$str = "absdjaacnadje";
+			$arr = $this->util->count_sort_char_in_string($str);
+			$this->assertEquals(4, $arr['a']);
+			$this->assertEquals('a', key($arr));
+		}
+
 
 	}
