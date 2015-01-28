@@ -34,6 +34,8 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 	- [PSR2]
 	- [PSR3]
 	- [PSR4]
+- [Code Quality](#Code Quality)
+	- [php_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
 ### Internationalization
 * [php-i18n](https://github.com/Philipp15b/php-i18n) - i18n with cache.
@@ -70,16 +72,17 @@ There are lots of great solutions in PHP to a certain web problems, and here is 
 
 ### Data
 * [generateData](https://github.com/benkeen/generatedata) - app to generate random data in js, php, mysql
-<<<<<<< HEAD
 
 ### Page
 * [Jekyll](https://github.com/jekyll/jekyll) - blog/site generated tool
 
-###Standard
+### Standard
 * [PSR0]() - autoload
 * [PSR1] - Basic Code Standard
 * [PSR2] - Code Style more details than PSR1
 * [PSR3] - Log and levels
 * [PSR4] - new autoload
-=======
->>>>>>> 2d2018dd761a1b8d724af9edab66237e0b142d26
+
+### Code quality
+* [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+
