@@ -3,22 +3,22 @@
  * Created by PhpStorm.
  * User: lei
  * Date: 28.01.15
- * Time: 21:23
+ * Time: 21:18
  */
 
 namespace DesignPatterns\Creational\Factory;
 
-class Auto implements VehicleInterface{
-    private $autoMaker;
-    private $autoMode;
+class Motor implements VehicleInterface{
+    private $motorMaker;
+    private $motorMode;
 
     /**
      * @param $maker
      * @param $mode
      */
     public function __construct($maker, $mode){
-        $this->autoMaker = $maker;
-        $this->autoMode = $mode;
+        $this->motorMaker = $maker;
+        $this->motorMode = $mode;
     }
 
     /**
@@ -27,7 +27,7 @@ class Auto implements VehicleInterface{
      */
     public function getMaker()
     {
-        return $this->autoMaker;
+        return $this->motorMaker;
     }
 
     /**
@@ -36,7 +36,7 @@ class Auto implements VehicleInterface{
      */
     public function getMode()
     {
-        return $this->autoMode;
+        return $this->motorMode;
     }
 
 } 
