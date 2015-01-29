@@ -1,31 +1,37 @@
-<?php 
-	class Singleton {
-		//prevent construct, clone, unserialize
-		public static function getInstance(){
-			static $instance = null;
-			if(null === $instance){
-				// an instance of 'Singleton' late binding
-				$instance = new static();
-			}
-			return $instance;
-		}
+<?php
+/**
+ * Created by PhpStorm.
+ * User: lei
+ * Date: 28.01.15
+ * Time: 22:04
+ */
 
-		protected function __construct(){}
+namespace DesignPatterns\Creational\Singleton;
 
-		private function __clone(){}
 
-		private function __wakeup(){}
-	}
+class Singleton {
+    /**
+     * reference to the Singleton instance
+     */
+    private static $instance;
 
- ?>
-<html>
-<head>
-	<title>Singleton</title>
-</head>
-<body>
-	<?php 
-		$instance = Singleton::getInstance();
-		var_dump($instance === Singleton::getInstance());
-	 ?>
-</body>
-</html>
+    /**
+     * lazy initialization (created when used)
+     * @return self
+     */
+    public static function getInstance(){
+        if(null === static::$instance){
+            static::$instance = new static;
+        }
+        return static::$instance;
+    }
+
+    /**
+     * prevent call from outside, clone or unserilize
+     */
+    private function __construct(){}
+
+    private function __clone(){}
+
+    private function __wakeup(){}
+}
