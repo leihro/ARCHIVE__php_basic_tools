@@ -3,7 +3,7 @@
 ### Creational 
 
 * [Singleton](https://github.com/leihro/php_basic_tools/tree/master/design_pattern/src/Creational/Singleton): 单例的类只能创建**“一个”**实例
-* [Factory](https://github.com/leihro/php_basic_tools/tree/master/design_pattern/src/Creational/Factory): 用户通过工厂提供的接口**“创建”**特定类的实例，生产的过程由工厂封装在相应的类中
+* [Factory](https://github.com/leihro/php_basic_tools/tree/master/design_pattern/src/Creational/Factory): 用户通过工厂提供的接口**“创建”**特定类的**实例**，生产的过程由工厂封装在相应的类中
 * AbstractFactory
 * StaticFactory
 * FactoryMethod
@@ -30,11 +30,11 @@
 * [Strategy](https://github.com/leihro/php_basic_tools/tree/master/design_pattern/src/Behavioral/Strategy): 用户通过统一接口进行**“策略选择”**，策略的实现内部自动实现
 * ChainOfResponsibilities
 * Command
-* Iterator
+* Iterator: 通过实现**Iterator接口定义的methods**，可以让object具有可遍历的性质
 * Mediator
 * Memento
-* NullObject
-* Observer
+* NullObject: 和普通class一样实现一个接口，实现的method不做任何事，简化代码逻辑，**省去is_null()**检验，因为已经在Object层面定义了Null的行为
+* Observer: 通过**SplSubject, SplObserver**实现。subject定义attach和detach Observer 行为，当subject的obj更改时notify Observer，observer实现update，
 * Specification
 * State
 * TemplateMethod
