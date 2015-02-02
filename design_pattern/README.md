@@ -32,12 +32,12 @@
 * Command
 * Iterator: 通过实现**Iterator接口定义的methods**，可以让object具有可遍历的性质
 * Mediator
-* Memento
+* Memento: 记事本，**纪录上一个状态**，并且可以根据需要还原
 * NullObject: 和普通class一样实现一个接口，实现的method不做任何事，简化代码逻辑，**省去is_null()**检验，因为已经在Object层面定义了Null的行为
 * Observer: 通过**SplSubject, SplObserver**实现。subject定义attach和detach Observer 行为，当subject的obj更改时notify Observer，observer实现update，
 * Specification
 * State
-* TemplateMethod
+* TemplateMethod: 抽象类**定义好Template**，尽量不让user改。具体的类实现抽象类中的抽象method，从而实现Template
 * Visitor
 
 ###Others
