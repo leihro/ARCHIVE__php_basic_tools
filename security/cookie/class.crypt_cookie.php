@@ -46,4 +46,3 @@
 			return $this->decrypt_string($salt, base64_decode($string));
 		}
 	}
- ?>
